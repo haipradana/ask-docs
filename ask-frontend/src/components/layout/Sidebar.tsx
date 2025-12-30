@@ -112,10 +112,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="p-4">
           <div className="px-3 py-2 bg-white/10 backdrop-blur-sm rounded-lg">
             <p className="text-xs text-white/70">
-              Powered by RAG AI
+              ask your document
             </p>
             <p className="text-xs text-white/50">
-              © 2024 Pradana Yahya
+              ©2025 Pradana Yahya
             </p>
           </div>
         </div>
