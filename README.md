@@ -1,6 +1,6 @@
 # ASK DOCS - ask.pradanayahya.me
 
-Implementasi Hybrid Search dan Agentic RAG (Retrieval-Augmented Generation) dengan FastAPI backend dan React frontend. Menerapkan konsep Hybrid Search pada pencarian jawaban, dengan pendekatan semantic (dense vector) dengan embedding dan exact keyword (sparse vector) dengan algoritma BM25.
+Implementasi Hybrid Search dan Agentic RAG (Retrieval-Augmented Generation) dengan FastAPI backend dan React frontend. Menerapkan konsep Hybrid Search pada pencarian jawaban, dengan pendekatan semantic (dense vector) dengan embedding dan exact keyword (sparse vector) dengan algoritma BM25. Hasil bobot pada vector dan kata kunci lalu digabung dan diberi bobot oleh Reciprocal Rank Fusion (RRF), menghasilkan peringkat akhir yang lebih relevan terhadap query user.
 
 Menggunakan embedding model all-MiniLM-L6-v2, kecil dan ramah cpu, dengan 384 dimensi. NOTE: buat collection dengan 384 dimensi! Bisa via REST, cek `ask-backend/howto.md`.
 
