@@ -15,6 +15,7 @@ export const ChatInput: React.FC<ChatInputProps> = ({
 }) => {
   const [input, setInput] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const adjustHeight = useCallback(() => {
     const textarea = textareaRef.current;
@@ -27,6 +28,24 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   useEffect(() => {
     adjustHeight();
   }, [input, adjustHeight]);
+
+  // Handle focus - scroll input into view
+  const handleFocus = useCallback(() => {
+    // Small delay to ensure keyboard is shown
+    setTimeout(() => {
+      if (containerRef.current) {
+        containerRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }
+      // Alternative: scroll to bottom of page
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth'
+      });
+    }, 300); // 300ms delay for keyboard animation
+  }, []);
 
   const handleSubmit = useCallback(() => {
     if (input.trim() && !isLoading) {
@@ -46,13 +65,14 @@ export const ChatInput: React.FC<ChatInputProps> = ({
   );
 
   return (
-    <div className="relative">
+    <div ref={containerRef} className="relative">
       <div className="flex items-center gap-2 p-1.5 bg-[#2a2a28] border border-[#3a3a38] rounded-2xl focus-within:border-[hsl(220,70%,45%)] hover:border-[hsl(220,70%,40%)/50] transition-all duration-200">
         <textarea
           ref={textareaRef}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
+          onFocus={handleFocus}
           placeholder={placeholder}
           disabled={isLoading}
           rows={1}

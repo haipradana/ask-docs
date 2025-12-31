@@ -53,3 +53,10 @@
 .animate-blink {
   animation: blink 1s ease-in-out infinite;
 }
+
+/* Prevent zoom on input focus in iOS */
+@supports (-webkit-touch-callout: none) {
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}

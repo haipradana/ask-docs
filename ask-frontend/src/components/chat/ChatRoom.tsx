@@ -47,7 +47,7 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({ room }) => {
       )}
 
       {/* Input area */}
-      <div className="p-4 md:p-6 flex-shrink-0 border-t border-white/5">
+      <div className="p-4 md:p-6 flex-shrink-0 border-t border-white/5 bg-[#1a1a18]">
         <div className="max-w-3xl mx-auto">
           <ChatInput onSend={send} isLoading={isLoading} />
         </div>
