@@ -2,6 +2,7 @@ import React from 'react';
 import { Message } from '@/types/chat';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { Bot } from 'lucide-react';
+import { useTypingEffect } from '@/hooks/useTypingEffect';
 
 interface ChatMessageProps {
   message: Message;
@@ -11,6 +12,14 @@ interface ChatMessageProps {
 export const ChatMessage: React.FC<ChatMessageProps> = ({ message, isLoading }) => {
   const isUser = message.role === 'user';
   const isEmpty = !message.content && isLoading;
+  
+  // Use typing effect for assistant messages
+  const shouldAnimate = !isUser && message.content && !isLoading;
+  const { displayedText, isTyping } = useTypingEffect({
+    text: message.content,
+    speed: 20, // Adjust speed (ms per character)
+    enabled: shouldAnimate,
+  });
 
   if (isUser) {
     return (
@@ -40,11 +49,17 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message, isLoading }) 
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse-glow" style={{ animationDelay: '400ms' }} />
           </div>
         ) : (
-          <MarkdownRenderer content={message.content} />
+          <div className="relative">
+            <MarkdownRenderer content={shouldAnimate ? displayedText : message.content} />
+            {/* Typing cursor */}
+            {isTyping && (
+              <span className="inline-block w-0.5 h-4 bg-primary ml-0.5 animate-blink" />
+            )}
+          </div>
         )}
 
-        {/* Sources */}
-        {message.sources && message.sources.length > 0 && (
+        {/* Sources - only show when typing is complete */}
+        {message.sources && message.sources.length > 0 && !isTyping && (
           <div className="mt-3 pt-3 border-t border-border/50">
             <p className="text-xs text-muted-foreground mb-1.5">Sumber:</p>
             <div className="flex flex-wrap gap-1.5">
