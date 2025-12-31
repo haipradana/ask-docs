@@ -4,22 +4,22 @@ export const ROOMS: Room[] = [
   {
     id: 'kampus',
     name: 'Kampus',
-    description: 'Pertanyaan seputar kampus dan akademik',
+    description: 'Kebijakan kampus dan dteti',
   },
   {
     id: 'umum',
     name: 'Umum',
-    description: 'Pertanyaan umum dan general',
+    description: 'belum ada isi',
   },
   {
     id: 'internal',
     name: 'Internal',
-    description: 'Informasi internal organisasi',
+    description: 'belum ada isi',
   },
   {
     id: 'dokumentasi',
     name: 'Dokumentasi',
-    description: 'Dokumentasi teknis dan panduan',
+    description: 'belum ada isi',
   },
 ];
 
