@@ -21,7 +21,7 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({ room }) => {
   return (
     <div className="flex flex-col h-full bg-[#1a1a18]">
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto scrollbar-thin px-4 md:px-6 py-4 bg-[#1a1a18]">
+      <div className="flex-1 overflow-y-auto scrollbar-thin px-4 md:px-6 py-4 bg-[#1a1a18] min-h-0">
         {messages.length === 0 ? (
           <EmptyState room={room} />
         ) : (
@@ -47,7 +47,7 @@ export const ChatRoom: React.FC<ChatRoomProps> = ({ room }) => {
       )}
 
       {/* Input area */}
-      <div className="p-4 md:p-6">
+      <div className="p-4 md:p-6 flex-shrink-0 border-t border-white/5">
         <div className="max-w-3xl mx-auto">
           <ChatInput onSend={send} isLoading={isLoading} />
         </div>

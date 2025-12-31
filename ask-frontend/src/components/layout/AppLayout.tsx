@@ -12,7 +12,7 @@ export const AppLayout: React.FC = () => {
   const [sidebarVisible, setSidebarVisible] = useState(true); // desktop
 
   return (
-    <div className="flex h-screen w-full bg-background overflow-hidden">
+    <div className="flex h-[100dvh] w-full bg-background overflow-hidden">
       {/* Sidebar */}
       <Sidebar
         currentRoom={currentRoom}
@@ -37,7 +37,7 @@ export const AppLayout: React.FC = () => {
         />
 
         {/* Chat room - key forces remount on room change */}
-        <div className="flex-1 min-h-0">
+        <div className="flex-1 min-h-0 overflow-hidden">
           <ChatRoom key={currentRoom.id} room={currentRoom} />
         </div>
       </main>
