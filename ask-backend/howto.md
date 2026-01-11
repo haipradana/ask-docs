@@ -1,5 +1,5 @@
 ## buuat collection qdrant
-curl -X PUT "https://qdrant.pradanayahya.me/collections/ask_docs_e5" \
+curl -X PUT "https://qdrant.pradanayahya.com/collections/ask_docs_e5" \
   -H "api-key: API-KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -36,7 +36,7 @@ curl -X POST "http://localhost:8000/search" \
 curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d '{ "room": "kampus", "question": "apa syarat seminar kerja praktik?" }'
 
 # hapus berdasarkan filter
-curl -X POST "https://qdrant.pradanayahya.me/collections/ask_docs_e5/points/delete" \
+curl -X POST "https://qdrant.pradanayahya.com/collections/ask_docs_e5/points/delete" \
   -H "Content-Type: application/json" \
   -H "api-key: API-KEY" \
   -d '{

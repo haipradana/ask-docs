@@ -2,7 +2,7 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import FieldCondition, NamedVector, NamedSparseVector, SparseVector, PointStruct
 import os
 
-# QDRANT_HOST = os.getenv("QDRANT_HOST", "qdrant.pradanayahya.me")
+# QDRANT_HOST = os.getenv("QDRANT_HOST", "qdrant.pradanayahya.com")
 QDRANT_HOST = os.getenv("QDRANT_URL")
 QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 COLLECTION = "ask_docs_e5"
