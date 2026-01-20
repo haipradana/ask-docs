@@ -1,0 +1,2 @@
+# Domain redirect from .me to .com
+https://ask.pradanayahya.me/* https://ask.pradanayahya.com/:splat 301!
